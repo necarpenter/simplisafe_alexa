@@ -1,0 +1,81 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "ArmAwayIntent",
+      "samples": [
+        "arm away",
+        "system arm away"
+      ],
+      "slots": []
+    },
+    {
+      "name": "DisarmIntent",
+      "samples": [
+        "disarm {pin}",
+        "disarm system",
+        "system system"
+      ],
+      "slots": [
+        {
+          "name": "pin",
+          "type": "AMAZON.FOUR_DIGIT_NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "HelloIntent",
+      "samples": [
+        "simplisafe",
+        "s.s. hello"
+      ],
+      "slots": []
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Elicit.Intent-DisarmIntent.IntentSlot-pin",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Please speak PIN"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "DisarmIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "pin",
+            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-DisarmIntent.IntentSlot-pin"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
