@@ -23,7 +23,7 @@ def armaway():
 
 def disarm(pin):
 
-    correct_pin = 1234
+    correct_pin = 9999 #sample pin
 
     if pin == correct_pin:
         p = multiprocessing.Process(target=os.system("curl -X POST -b cookies.txt -d 'state=off&mobile=1&no_persist=1&XDEBUG_SESSION_START=session_name' https://simplisafe.com/mobile/646615/sid/518950/set-state"))
